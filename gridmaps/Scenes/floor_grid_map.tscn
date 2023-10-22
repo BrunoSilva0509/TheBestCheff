@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://brqyuffx24kyl"]
+
+[ext_resource type="MeshLibrary" uid="uid://b00josjqi4s4g" path="res://gridmaps/resources/floors.tres" id="1_5ro74"]
+
+[node name="FloorGridMap" type="GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.092, 0)
+mesh_library = ExtResource("1_5ro74")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
