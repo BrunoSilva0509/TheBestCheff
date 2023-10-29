@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://btfdh6j8ljjgd"]
+[gd_scene load_steps=14 format=3 uid="uid://btfdh6j8ljjgd"]
 
 [ext_resource type="PackedScene" uid="uid://ck5p7bkt6clit" path="res://Characters/scenas/main_character.tscn" id="1_41agt"]
 [ext_resource type="PackedScene" uid="uid://b3pdgcq4f1alr" path="res://gridmaps/Scenes/walls_grid_map.tscn" id="2_1rksm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://q1il1aylodvi" path="res://gridmaps/Scenes/counters_grid_map.tscn" id="4_two6i"]
 [ext_resource type="Material" uid="uid://btntdpqkc31xa" path="res://shaders/materials/sky_shader.tres" id="5_qgx5o"]
 [ext_resource type="Shader" path="res://shaders/shaders/fog.gdshader" id="6_578sd"]
+[ext_resource type="PackedScene" uid="uid://dbdmmjkr0a7df" path="res://interface/Scenes/gui.tscn" id="7_v54x6"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pcg0t"]
 size = Vector2(1000, 1000)
@@ -23,13 +24,9 @@ sky_material = ExtResource("5_qgx5o")
 [sub_resource type="Environment" id="Environment_4ey6t"]
 background_mode = 2
 sky = SubResource("Sky_uut2h")
-ssr_enabled = true
 ssr_max_steps = 256
-ssao_enabled = true
 ssao_radius = 2.0
 ssao_detail = 4.0
-ssil_enabled = true
-sdfgi_enabled = true
 fog_light_energy = 0.01
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.009
@@ -185,11 +182,11 @@ transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 4, 0)
 shadow_enabled = true
 shadow_blur = 0.5
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["environment"]]
 environment = SubResource("Environment_4ey6t")
 
 [node name="Fog_1" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 95.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 8, 91.5)
 size = Vector3(160, 0.5, 160)
 material = SubResource("ShaderMaterial_iity5")
 
@@ -197,3 +194,5 @@ material = SubResource("ShaderMaterial_iity5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -115)
 size = Vector3(160, 0.5, 160)
 material = SubResource("ShaderMaterial_iity5")
+
+[node name="Gui" parent="." instance=ExtResource("7_v54x6")]
